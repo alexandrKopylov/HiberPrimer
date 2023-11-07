@@ -1,6 +1,8 @@
 package com.app.pojo;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Emplloyee {
@@ -13,17 +15,17 @@ public class Emplloyee {
     private String lastName;
     @Column
     private int age;
-    @OneToOne
-    private Adress adress;
+    @OneToMany
+    private List<Adress> adresses = new ArrayList<>();
 
     public Emplloyee() {
     }
 
-    public Emplloyee(String firstName, String lastName, int age, Adress adress) {
+    public Emplloyee(String firstName, String lastName, int age, List<Adress> adresses) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.adress = adress;
+        this.adresses = adresses;
     }
 
     public String getFirstName() {
@@ -50,11 +52,11 @@ public class Emplloyee {
         this.age = age;
     }
 
-    public Adress getAdress() {
-        return adress;
+    public List<Adress> getAdresses() {
+        return adresses;
     }
 
-    public void setAdress(Adress adress) {
-        this.adress = adress;
+    public void setAdresses(List<Adress> adresses) {
+        this.adresses = adresses;
     }
 }

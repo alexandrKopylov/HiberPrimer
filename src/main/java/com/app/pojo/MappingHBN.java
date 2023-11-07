@@ -12,7 +12,15 @@ public class MappingHBN {
     public static void main(String[] args) {
 
         Adress adress = new Adress("City", "Street","00111");
-        Emplloyee emp  = new Emplloyee("Sasa", "kop", 42 , adress);
+        Adress adress2 = new Adress("City2222", "Street2222","001112222");
+
+
+        Emplloyee emp  = new Emplloyee();
+        emp.setFirstName("Sasa");
+        emp.setLastName("Kop");
+        emp.setAge(42);
+        emp.getAdresses().add(adress);
+        emp.getAdresses().add(adress2);
 
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure("hibernate.cfg.xml").build();
@@ -25,6 +33,7 @@ public class MappingHBN {
         Session sessionCreate = sessionFactory.openSession();
         Transaction trCreate = sessionCreate.beginTransaction();
         sessionCreate.save(adress);
+        sessionCreate.save(adress2);
         sessionCreate.save(emp);
         trCreate.commit();
         sessionCreate.close();

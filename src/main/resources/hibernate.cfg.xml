@@ -15,7 +15,7 @@
         <property name="connection.password">testtest</property>
 
         <property name="show_sql">true</property>
-        <mapping class="com.app.pojo.Student"></mapping>
+<!--        <mapping class="com.app.pojo.Student"></mapping>-->
         <mapping class="com.app.pojo.Adress"></mapping>
         <mapping class="com.app.pojo.Emplloyee"></mapping>
 
