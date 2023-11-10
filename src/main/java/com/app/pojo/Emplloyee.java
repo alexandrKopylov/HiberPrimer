@@ -15,7 +15,8 @@ public class Emplloyee {
     private String lastName;
     @Column
     private int age;
-    @OneToMany
+
+    @OneToMany(mappedBy = "emplloyee")
     private List<Adress> adresses = new ArrayList<>();
 
     public Emplloyee() {

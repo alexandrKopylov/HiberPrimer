@@ -1,9 +1,6 @@
 package com.app.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Adress {
@@ -17,6 +14,9 @@ public class Adress {
     @Column
     private String zipCode;
 
+    @ManyToOne
+    private Emplloyee emplloyee;
+
     public Adress() {
     }
 
@@ -24,6 +24,15 @@ public class Adress {
         this.city = city;
         this.street = street;
         this.zipCode = zipCode;
+
+    }
+
+    public Emplloyee getEmplloyee() {
+        return emplloyee;
+    }
+
+    public void setEmplloyee(Emplloyee emplloyee) {
+        this.emplloyee = emplloyee;
     }
 
     public int getId() {
